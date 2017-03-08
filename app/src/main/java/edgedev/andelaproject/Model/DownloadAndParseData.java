@@ -64,5 +64,6 @@ public class DownloadAndParseData {
         for (int i=0; i<5; i++){
             download_profiles(apiURL+""+i);
         }
+        myAdapter.notifyDataSetChanged();
     }
 }
