@@ -30,6 +30,7 @@ public class SingleProfileFragment extends Fragment {
     private String profileUsername_String;
 
 
+
     public static Fragment newInstance(String github_username) {
         Bundle args = new Bundle();
         args.putString(DEV_USERNAME, github_username);
@@ -52,16 +53,18 @@ public class SingleProfileFragment extends Fragment {
 
         TextView username = (TextView) view.findViewById(R.id.dev_githubUsername_Fragment);
         TextView profileURL = (TextView) view.findViewById(R.id.dev_githubProfileUrl_Fragment);
+        TextView score  = (TextView) view.findViewById(R.id.githubScore);
         NetworkImageView profileImage = (NetworkImageView) view.findViewById(R.id.profileImage_Fragment);
 
         profileImage.setImageUrl(mLagJavaGitHubProfile.getImage_url(), ConnectionManager.getImageLoader(getContext()));
 
 
         profileUrl_String = mLagJavaGitHubProfile.getGithub_profile_url();
-        profileUsername_String = mLagJavaGitHubProfile.getGithub_username();
+        profileUsername_String = "@"+mLagJavaGitHubProfile.getGithub_username();
 
         profileURL.setText(profileUrl_String);
         username.setText(profileUsername_String);
+        score.setText(mLagJavaGitHubProfile.getScore());
 
         profileURL.setOnClickListener(new View.OnClickListener() {
             @Override

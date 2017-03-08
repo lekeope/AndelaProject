@@ -62,7 +62,7 @@
                     style="?android:listSeparatorTextViewStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Username"/>
+                    android:text="@string/username_title"/>
 
                 <TextView
                     android:id="@+id/dev_githubUsername_Fragment"
@@ -76,6 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardElevation="2dp"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
             card_view:cardCornerRadius="4dp">
 
             <LinearLayout
@@ -88,14 +89,14 @@
                     style="?android:listSeparatorTextViewStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="GitHub Profile"/>
+                    android:text="@string/github_profile"/>
 
                 <TextView
                     android:id="@+id/dev_githubProfileUrl_Fragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="openTheGitHubProfile"
-                    android:text="www.github.com/edge-developer"
+                    android:text="@string/github_link"
                     android:textColor="@android:color/holo_blue_dark"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -116,12 +117,13 @@
                     style="?android:listSeparatorTextViewStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="GitHub Score"/>
+                    android:text="@string/github_score"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2.333"
+                    android:text="@string/radom_double"
+                    android:id="@+id/githubScore"
                     style="?android:textAppearanceLarge"
                     android:textColor="@android:color/holo_blue_dark"/>
             </LinearLayout>

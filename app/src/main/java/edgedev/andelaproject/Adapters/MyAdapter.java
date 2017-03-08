@@ -48,7 +48,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         return profiles.size();
     }
 
-    public void addPosts(ArrayList<LagJavaGitHubProfile> profiles) {
+    public void addProfiles(ArrayList<LagJavaGitHubProfile> profiles) {
         for (LagJavaGitHubProfile devProfile : profiles) {
             this.profiles.add(devProfile);
             notifyItemInserted(profiles.size() - 1);

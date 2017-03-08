@@ -2,5 +2,12 @@
     <string name="app_name">Andela Project</string>
     <string name="username">/@Edge-Developer</string>
     <string name="github_username">GitHub Username</string>
-    <string name="loading">Loading...</string>
+    <string name="loading">Loading&#8230;</string>
+    <string name="toolbar_subtitle">Java Developers - Lagos</string>
+    <string name="sync">Sync</string>
+    <string name="github_profile">GitHub Profile</string>
+    <string name="github_link">www.github.com/edge-developer</string>
+    <string name="username_title">Username</string>
+    <string name="github_score">GitHub Score</string>
+    <string name="radom_double">2.333</string>
 </resources>

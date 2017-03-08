@@ -25,16 +25,15 @@ public class MyDB extends SQLiteOpenHelper {
     * SQLite Create Table Sentence
     */
     private static final String CREATE_PROFILE_TABLE =
-            "CREATE TABLE "
+            "create table "
                     + DatabaseContract.PostTable.TABLE_NAME
-                    + " ("
+                    + "("
                     + DatabaseContract.PostTable.GITHUB_PROFILE_ID + INTEGER_TYPE + COMMA
                     + DatabaseContract.PostTable.GITHUB_USERNAME + TEXT_TYPE + COMMA
                     + DatabaseContract.PostTable.GITHUB_PROFILE_URL + TEXT_TYPE + COMMA
-                    + DatabaseContract.PostTable.GITHUB_IMAGE_URL + TEXT_TYPE
+                    + DatabaseContract.PostTable.GITHUB_IMAGE_URL + TEXT_TYPE + COMMA
                     + DatabaseContract.PostTable.GITHUB_PROFILE_SCORE + TEXT_TYPE
-                    + " )";
-
+                    + ")";
 
     public MyDB(Context context) {
         super(context, DatabaseContract.DB_NAME, null, DATABASE_VERSION);

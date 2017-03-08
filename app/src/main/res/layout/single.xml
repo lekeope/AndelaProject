@@ -39,11 +39,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/github_username"/>
-
-            <TextView
                 android:id="@+id/usernameTextView"
                 style="@style/Base.TextAppearance.AppCompat.Title"
                 android:layout_width="wrap_content"

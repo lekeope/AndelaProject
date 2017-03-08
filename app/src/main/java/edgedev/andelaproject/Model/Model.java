@@ -9,14 +9,16 @@ import java.util.List;
  * Created by OPEYEMI OLORUNLEKE on 3/6/2017.
  */
 
-public class Model {
+class Model {
 
     @SerializedName("total_count")
     @Expose
     private int totalCount;
+
     @SerializedName("incomplete_results")
     @Expose
     private Boolean incompleteResults;
+
     @SerializedName("items")
     @Expose
     private List<Item> items = null;

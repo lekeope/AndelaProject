@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
+import edgedev.andelaproject.Adapters.MyAdapter;
 import edgedev.andelaproject.Connection.ConnectionManager;
 import edgedev.andelaproject.Database.DatabaseAccessObject;
 
@@ -19,25 +20,23 @@ import edgedev.andelaproject.Database.DatabaseAccessObject;
 
 public class DownloadAndParseData {
     private Context context;
-    private boolean successful;
+    private MyAdapter myAdapter;
 
-    public DownloadAndParseData(Context context){
+    public DownloadAndParseData(Context context, final MyAdapter myAdapter) {
         this.context = context;
-
+        this. myAdapter = myAdapter;
     }
 
-    public boolean download_users(String URL){
+    private void download_profiles(String URL) {
         final ArrayList<LagJavaGitHubProfile> lagosJavaDevelopers = new ArrayList<>();
-
         StringRequest mStringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
                 Model model = new Gson().fromJson(response, Model.class);
                 LagJavaGitHubProfile lagosJavaDev;
                 Item item;
 
-                for (int i = 0; i<model.getItems().size();i++){
+                for (int i = 0; i < model.getItems().size(); i++) {
                     item = model.getItems().get(i);
                     lagosJavaDev = new LagJavaGitHubProfile(
                             item.get_Id(),
@@ -49,17 +48,21 @@ public class DownloadAndParseData {
                     lagosJavaDevelopers.add(lagosJavaDev);
                 }
                 new DatabaseAccessObject().storePosts(context, lagosJavaDevelopers);
-                successful =  true;
+                myAdapter.addProfiles(lagosJavaDevelopers);
             }
 
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                successful = false;
             }
         });
 
         ConnectionManager.getInstance(context).add(mStringRequest);
-        return successful;
+    }
+
+    public void allJavaDevProfiles(String apiURL){
+        for (int i=0; i<5; i++){
+            download_profiles(apiURL+""+i);
+        }
     }
 }

@@ -72,14 +72,10 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
 
-        mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
+        FragmentStatePagerAdapter fragmentStatePagerAdapter = new FragmentStatePagerAdapter(fragmentManager) {
             @Override
             public Fragment getItem(int position) {
                 LagJavaGitHubProfile profile = lag_java_dev_profiles.get(position);
-                int indexOfCurrentViewPager = mViewPager.getCurrentItem();
-                username = lag_java_dev_profiles.get(indexOfCurrentViewPager).getGithub_username();
-                profileUrl = lag_java_dev_profiles.get(indexOfCurrentViewPager).getGithub_profile_url();
-                toolbar.setSubtitle(username);
                 return SingleProfileFragment.newInstance(profile.getGithub_username());
             }
 
@@ -87,7 +83,28 @@ public class ViewPagerActivity extends AppCompatActivity {
             public int getCount() {
                 return lag_java_dev_profiles.size();
             }
+        };
+
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                username = lag_java_dev_profiles.get(position).getGithub_username();
+                profileUrl = lag_java_dev_profiles.get(position).getGithub_profile_url();
+                toolbar.setSubtitle(username);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
         });
+        mViewPager.setAdapter(fragmentStatePagerAdapter);
 
 
         for (int i = 0; i < lag_java_dev_profiles.size(); i++) {
