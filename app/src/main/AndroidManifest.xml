@@ -21,7 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Activites_and_Fragments.ViewPagerActivity">
+        <activity
+            android:name=".Activites_and_Fragments.ViewPagerActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activites_and_Fragments.MainActivity"/>
